@@ -102,7 +102,7 @@ int main()
 
 
 # Result:
-Thus a LED is interfaced with ARM LPC 1768 Microprocessor and its blinking was verified sucessfully.
+The LED is interfaced with ARM LPC 1768 Microprocessor and its blinking was verified sucessfully.
 
 
 
