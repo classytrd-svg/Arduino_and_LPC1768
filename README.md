@@ -1,5 +1,5 @@
 # LED BLINKING USING ARDUINO AND FLASHING-OF-LEDS-WITH-LPC-1768
-
+# NAME: Vignesh E (212223060298)
 # AIM: 
    To interface and toggle the led with ARM LPC 1768 microprocessor and Led blinking using Arduino          
            
@@ -44,18 +44,65 @@ Header:
 Delay.h, stdutils.h, gpioi.h
 
 # PIN DIAGRAM :
- 
+
+ <img width="847" height="506" alt="image" src="https://github.com/user-attachments/assets/f962ce6c-f0e3-4ae5-b624-ebb33dfcff5c" />
 
 # CIRCUIT DIAGRAM:
+
+<img width="672" height="378" alt="image" src="https://github.com/user-attachments/assets/3baebdf2-1eac-4719-aefc-822f68820d18" />
+
  
  
 # PROGRAM:
 ### ARDUINO PROGRAM
+```
+void setup(){
+   pinMode(8,OUTPUT);
+}
+
+void loop(){
+   digitalWrite(8,HIGH);
+   delay(5000);
+   digitalWrite(8,LOW);
+   delay(1000);
+```
+### KEIL 
+```
+ #include <lpc17xx.h> 
+#include "delay.h" //User defined library which conatins the delay routines 
+#include "gpio.h" 
+#define LED P1_29 // Led is connected to P1.29 
+/* start the main program */ 
+int main() 
+{ 
+  SystemInit(); //Clock and PLL configuration 
+  GPIO_PinFunction(LED,PINSEL_FUNC_0); // Configure Pin for Gpio 
+  GPIO_PinDirection(LED,OUTPUT); // Configure the pin as OUTPUT 
+  GPIO_PinWrite(LED,LOW); 
+  while(1) 
+ { 
+   /* Turn On all the leds and wait for 100ms */ 
+   GPIO_PinWrite(LED,HIGH); // Make all the Port pin as high 
+   DELAY_ms(100); 
+ 
+   GPIO_PinWrite(LED,LOW); // Make all the Port pin as low 
+   DELAY_ms(100); 
+  } 
+}
+```
+# Output:
+### ARDUINO PROGRAM
+<img width="1600" height="999" alt="image" src="https://github.com/user-attachments/assets/5ab967c0-5b39-4da1-a8b5-51628d12da2b" />
+
+
 
 ### KEIL 
- 
-# Output:
+<img width="900" height="651" alt="image" src="https://github.com/user-attachments/assets/e83659f9-ba5c-4f2f-9f5c-ad5a4336b43c" />
 
+
+
+# Result:
+Thus a LED is interfaced with ARM LPC 1768 Microprocessor and its blinking was verified sucessfully.
 
 
 
